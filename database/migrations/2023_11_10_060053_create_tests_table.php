@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('unregistered', function (Blueprint $table) {
+        Schema::create('unregistereds', function (Blueprint $table) {
             $table->id('id');
             $table->string('mailadress')->unique()->nullable(false);
-            $table->dateTime('issue_time')->nullable(false)->useCurrent();
-            $table->dateTime('update_time')->nullable($value = true)->useCurrentOnUpdate();
+            $table->dateTime('created_at')->nullable(false)->useCurrent();
+            $table->dateTime('updated_at')->nullable($value = true)->useCurrentOnUpdate();
             $table->tinyInteger('valid')->nullable(false)->unsigned();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('unregistered');
+        Schema::dropIfExists('unregistereds');
     }
 };

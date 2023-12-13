@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id('id');
-            $table->string('user_uid')->unique()->nullable(false);
+            $table->string('user_uid')->nullable(false);
             $table->integer('post_id')->nullable(false)->unsigned();
             $table->string('sentence')->nullable(false);
-            $table->dateTime('issue_time')->nullable(false)->useCurrent();
-            $table->dateTime('update_time')->nullable($value = true)->useCurrentOnUpdate();
+            $table->dateTime('created_at')->nullable(false)->useCurrent();
+            $table->dateTime('updated_at')->nullable($value = true)->useCurrentOnUpdate();
             $table->tinyInteger('valid')->nullable(false)->unsigned();
         });
     }
